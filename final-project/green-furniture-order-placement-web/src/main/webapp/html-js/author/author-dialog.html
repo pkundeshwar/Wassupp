@@ -1,0 +1,47 @@
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAuthorLabel">
+            Create or edit a Author</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group" ng-show="vm.author.id">
+            <label>ID</label>
+            <input type="text" class="form-control" name="id" ng-model="vm.author.id" readonly>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">First Name</label>
+            <input type="text" class="form-control" name="firstName" ng-model="vm.author.firstName" ng-maxlength="50">
+
+            <div ng-show="editForm.firstName.$invalid">
+                <p class="help-block"ng-show="editForm.firstName.$error.maxlength">This field cannot be longer than 50 characters.</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" name="lastName" ng-model="vm.author.lastName" ng-maxlength="50">
+
+            <div ng-show="editForm.lastName.$invalid">
+                <p class="help-block"  ng-show="editForm.lastName.$error.maxlength">This field cannot be longer than 50 characters.</p>
+            </div>
+        </div>
+       <div class="form-group">
+            <label>Nationality</label>
+            <input type="text" class="form-control" name="nationality" ng-model="vm.author.nationality" ng-maxlength="50">
+
+            <div ng-show="editForm.nationality.$invalid">
+                <p class="help-block"  ng-show="editForm.nationality.$error.maxlength">This field cannot be longer than 50 characters.</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

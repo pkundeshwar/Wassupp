@@ -1,0 +1,43 @@
+<div ng-cloak>
+	<div class="row">
+		<div class="col-md-8">
+			<h1>Welcome!</h1>
+			<p>This is your homepage</p>
+
+			<div ng-switch="vm.isAuthenticated()">
+				<div class="alert alert-success" ng-switch-when="true">You are
+					logged in as user "{{vm.account.login}}".</div>
+
+				<div class="alert alert-success" ng-switch-when="true">
+					Access the data domain from the list below: <br /> <a
+						class="alert-link" ui-sref="author"><b> Author</b></a>
+				</div>
+				
+				<div class="alert alert-success" ng-switch-when="true">
+					Access the data domain from the list below: <br /> <a
+						class="alert-link" ui-sref="jobposting"><b> Job Posting</b></a>
+				</div>
+				
+
+
+			<div class="alert alert-warning" ng-switch-when="false">
+				Looks like your are not logged in the application<br />
+				<a class="alert-link" href="" ng-click="vm.login()"> click here
+					to sign in</a>
+			</div>
+
+			<div class="alert alert-info" ng-switch-when="false">
+				Default accounts are as follows:<br />Admin (login="admin" and
+				password="admin") <br />User (login="user" and password="user").
+			</div>
+
+			<div class="alert alert-success" ng-switch-when="false">
+				If you do not have a account<a class="alert-link" ui-sref="register">
+					click here to Register a new account</a>
+			</div>
+		</div>
+
+		<p>If you have any question on Feel free to contact us!</p>
+	</div>
+</div>
+</div>

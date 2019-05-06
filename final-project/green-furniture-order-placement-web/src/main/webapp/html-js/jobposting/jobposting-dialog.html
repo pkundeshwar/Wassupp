@@ -1,0 +1,54 @@
+ <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myJobPostingLabel">
+            Create or edit a Job Posting</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group" ng-show="vm.posting.id">
+            <label>ID</label>
+            <input type="text" class="form-control" name="id" ng-model="vm.posting.id" readonly>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Title</label>
+            <input type="text" class="form-control" name="title" ng-model="vm.posting.title" ng-maxlength="50">
+
+            <div ng-show="editForm.title.$invalid">
+                <p class="help-block"ng-show="editForm.title.$error.maxlength">This field cannot be longer than 50 characters.</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Location</label>
+            <input type="text" class="form-control" name="location" ng-model="vm.posting.location" ng-maxlength="50">
+
+            <div ng-show="editForm.location.$invalid">
+                <p class="help-block"  ng-show="editForm.location.$error.maxlength">This field cannot be longer than 50 characters.</p>
+            </div>
+        </div>
+       <div class="form-group">
+            <label>Description</label>
+            <textarea type="text" class="form-control" name="description" ng-model="vm.posting.description" ng-maxlength="2000" ></textarea>
+
+            <div ng-show="editForm.description.$invalid">
+                <p class="help-block"  ng-show="editForm.description.$error.maxlength">This field cannot be longer than 50 characters.</p>
+            </div>
+             <div class="form-group">
+            <label>Requirements</label>
+            <textarea type="text" class="form-control" name="requirements" ng-model="vm.posting.requirements" ng-maxlength="50"></textarea>
+
+            <div ng-show="editForm.requirements.$invalid">
+                <p class="help-block"  ng-show="editForm.requirements.$error.maxlength">This field cannot be longer than 50 characters.</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

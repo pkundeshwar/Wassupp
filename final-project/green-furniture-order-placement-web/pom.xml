@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+		<groupId>com.greenfurniture.orderplacement</groupId>
+		<artifactId>green-furniture-order-placement-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../green-furniture-order-placement-parent</relativePath>
+	</parent>
+
+
+	<artifactId>green-furniture-order-placement-web</artifactId>
+	<packaging>war</packaging>
+
+	<dependencies>
+	<dependency>
+			<groupId>com.greenfurniture.orderplacement</groupId>
+			<artifactId>green-furniture-order-placement-aspect</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.greenfurniture.orderplacement</groupId>
+			<artifactId>green-furniture-order-placement-domain</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.greenfurniture.orderplacement</groupId>
+			<artifactId>green-furniture-order-placement-security</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>green-furniture</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven-war-plugin.version}</version>
+				<configuration>
+					<webResources>
+						<webResource>
+							<directory>src/main/webapp</directory>
+						</webResource>
+					</webResources>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
